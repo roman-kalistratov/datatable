@@ -24,7 +24,9 @@
 <body>
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>My DataTable</h2>
+            <a href="index.php" class="text-decoration-none">
+                <h2>KSP Dictionary</h2>
+            </a>
             <div class="d-flex gap-3">
                 <button class="btn btn-success mb-3" id="createCache">
                     Create Cache
@@ -49,7 +51,8 @@
                     <th>Code</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+            </tbody>
         </table>
     </div>
 
@@ -73,6 +76,7 @@
                                     <option value="cart">cart</option>
                                     <option value="account">account</option>
                                     <option value="checkout">checkout</option>
+                                    <option value="mobile">mobile</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -162,7 +166,8 @@
             <div class="toast-body">
                 Hello, world! This is a toast message.
             </div>
-            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white btn-close-sm me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
         </div>
     </div>
 

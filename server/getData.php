@@ -1,14 +1,14 @@
 <?php
 header('Content-Type: application/json');
 
-include 'db.php'; // Подключение к базе данных
-include 'inc/functions.php'; // Подключение функций
+include 'db.php';
+include 'inc/functions.php';
 
-$conn = getDbConnection(); // Получение подключения
+$conn = getDbConnection();
 
-// Проверка, передан ли ID в запросе
+// Checking if ID is provided in the request
 if (isset($_GET['id'])) {
-    $id = (int)$_GET['id']; // Приведение ID к целому числу
+    $id = (int)$_GET['id'];
     $data = getDataById($conn, $id);
 
     if ($data) {
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
         ]);
     }
 } else {
-    // Если ID не передан, возвращаем все данные
+    // If ID is not provided, return all data
     $data = getData($conn);
     echo json_encode([
         "status" => "success",

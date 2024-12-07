@@ -17,8 +17,7 @@ function createCacheFiles($conn) {
     $allData = getData($conn);
 
     // Создание файла all_data.json
-    $allDataJsonFile = $cacheDir . '/all_data.json';
-    file_put_contents($allDataJsonFile, json_encode($allData, JSON_PRETTY_PRINT));
+    $allDataJsonFile = $cacheDir . '/all_data.json';       
 
     // Разделение данных по языкам и создание файлов
     $languages = ['en', 'he', 'ru'];
@@ -36,24 +35,18 @@ function createCacheFiles($conn) {
     }
 
     return [
-        "message" => "Cache files created successfully.",
-        "files" => [
-            'all_data.json' => $allDataJsonFile,
-            'en.php' => $cacheDir . '/en.php',
-            'en.js' => $cacheDir . '/en.js',
-            'he.php' => $cacheDir . '/he.php',
-            'he.js' => $cacheDir . '/he.js',
-            'ru.php' => $cacheDir . '/ru.php',
-            'ru.js' => $cacheDir . '/ru.js',
-        ]
+        "message" => "Cache files created successfully."
     ];
 }
 
 // Вызов функции создания кеша
 try {
+   
     $result = createCacheFiles($conn);
-    echo json_encode(["status" => "success", "message" => $result['message'], "files" => $result['files']]);
+    echo json_encode(["status" => "success", "message" => $result['message']]);
+    exit;
 } catch (Exception $e) {
     echo json_encode(["status" => "error", "message" => "Error creating cache: " . $e->getMessage()]);
+    exit;
 }
 ?>

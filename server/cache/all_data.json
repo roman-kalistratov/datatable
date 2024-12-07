@@ -1,14 +1,146 @@
 [
     {
+        "id": 47,
+        "app": "checkout",
+        "namespace": "test",
+        "base": "test",
+        "en": "asfasf",
+        "he": "test",
+        "ru": "fasfas",
+        "comment": "asfasf",
+        "code": "asfasfas"
+    },
+    {
+        "id": 46,
+        "app": "account",
+        "namespace": "fasfa\u0430\u0444\u044b\u0444\u0430",
+        "base": "faafs",
+        "en": "asfasf",
+        "he": "asfasf",
+        "ru": "fasf",
+        "comment": "asfas",
+        "code": "fasfasf"
+    },
+    {
+        "id": 45,
+        "app": "m-action",
+        "namespace": "asfaf",
+        "base": "asfasf",
+        "en": "sfasfas",
+        "he": "\u0430\u0444\u044b\u0430\u0444",
+        "ru": "asfas",
+        "comment": "fasfas",
+        "code": "fasfa"
+    },
+    {
+        "id": 44,
+        "app": "cart",
+        "namespace": "fasfsafa\u0432\u0444\u044b\u0432",
+        "base": "fasfas",
+        "en": "asfasf",
+        "he": "fasfasfafasf",
+        "ru": "asfasfas",
+        "comment": "asfsaf",
+        "code": "asf"
+    },
+    {
+        "id": 43,
+        "app": "account",
+        "namespace": "fasfafa",
+        "base": "fasfafa",
+        "en": "fasfafa",
+        "he": "\u0430\u0444\u044b\u0430\u0444",
+        "ru": "fasfafa",
+        "comment": "fasfafa",
+        "code": "fasfafa"
+    },
+    {
+        "id": 42,
+        "app": "account",
+        "namespace": "fasfa\u0444\u0444",
+        "base": "afasfaf",
+        "en": "afasfaf",
+        "he": "afasfaf\u0444",
+        "ru": "afasfaf",
+        "comment": "afasfaf",
+        "code": "afasfaf"
+    },
+    {
+        "id": 41,
+        "app": "account",
+        "namespace": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "base": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "en": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "he": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "ru": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "comment": "\u0444\u0430\u044b\u0430\u0444\u0430",
+        "code": "\u0444\u0430\u044b\u0430\u0444\u0430"
+    },
+    {
+        "id": 40,
+        "app": "cart",
+        "namespace": "\u0444\u044b\u0430\u0444",
+        "base": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "en": "\u0444\u044b\u0430\u0444",
+        "he": "asfafafsa",
+        "ru": "\u0444\u044b\u0430\u0444",
+        "comment": "\u0444\u044b\u0430\u0444",
+        "code": "\u0444\u044b\u0430\u0444"
+    },
+    {
+        "id": 39,
+        "app": "cart",
+        "namespace": "test212",
+        "base": "\u0430\u0444\u044b\u0430\u0444",
+        "en": "\u0430\u0444\u044b\u0430\u0444",
+        "he": "\u0430\u0444\u044b\u0430\u0444fasfas",
+        "ru": "\u0430\u0444\u044b\u0430\u0444",
+        "comment": "\u0430\u0444\u044b\u0430\u0444",
+        "code": "\u0430\u0444\u044b\u0430\u0444"
+    },
+    {
+        "id": 38,
+        "app": "mobile",
+        "namespace": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "base": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "en": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "he": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "ru": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "comment": "\u0430\u0444\u044b\u0430\u0444\u0430",
+        "code": "\u0430\u0444\u044b\u0430\u0444\u0430"
+    },
+    {
+        "id": 37,
+        "app": "checkout",
+        "namespace": "asfa",
+        "base": "asfa",
+        "en": "asfa",
+        "he": "asfa",
+        "ru": "asfa",
+        "comment": "asfa",
+        "code": "asfa"
+    },
+    {
+        "id": 36,
+        "app": "account",
+        "namespace": "\u0444\u044b\u0444\u0430\u0430\u0430\u0444",
+        "base": "\u0444\u0430\u044b\u0430\u0444",
+        "en": "\u0444\u0430\u044b\u0430\u0444",
+        "he": "\u0444\u0430\u044b\u0430\u0444",
+        "ru": "\u0444\u0430\u044b\u0430\u0444",
+        "comment": "\u0444\u0430\u044b\u0430\u0444",
+        "code": "\u0444\u0430\u044b\u0430\u0444"
+    },
+    {
         "id": 30,
         "app": "cart",
-        "namespace": "tes2123",
-        "base": "tes2",
-        "en": "tes2123123",
-        "he": "tes2",
-        "ru": "tes2",
-        "comment": "tes2",
-        "code": "tes2"
+        "namespace": "fasffasf",
+        "base": "fasf",
+        "en": "fasf",
+        "he": "\u0430\u0444\u044b\u0430\u0444\u0444\u0430",
+        "ru": "fasf",
+        "comment": "fasf",
+        "code": "fasf"
     },
     {
         "id": 29,
@@ -16,7 +148,7 @@
         "namespace": "test",
         "base": "test",
         "en": "test",
-        "he": "test",
+        "he": "\u0435\u0443\u044b\u04352fasfa",
         "ru": "test",
         "comment": "test",
         "code": "test"
@@ -34,7 +166,7 @@
     },
     {
         "id": 9,
-        "app": "checkout",
+        "app": "m-action",
         "namespace": "checkout",
         "base": "LANG_CHECKOUT_COMPLETE",
         "en": "Complete Purchase",

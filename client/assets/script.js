@@ -1,7 +1,5 @@
 $(document).ready(function () {
-  //   $("#myToast").toast({ delay: 3000 }); // Delay in milliseconds
-
-  // Initial DataTable
+  // Initial DataTable setup
   const table = $("#example").DataTable({
     paging: true,
     searching: true,
@@ -50,7 +48,7 @@ $(document).ready(function () {
       $("#comment").val(data.comment);
       $("#code").val(data.code);
       $("#addModal").data("id", data.id); // Store the id for update/delete
-      $("#addModal").data("keyText", data.base); // Store the id for update/delete
+      $("#addModal").data("keyText", data.base); // Store the key text for notification
 
       // Open the modal window
       $("#addModal").modal("show");
@@ -58,10 +56,10 @@ $(document).ready(function () {
   });
 
   // Handling the data addition form submission
-  $("#addDataForm").on("submit", function (event) {
-    event.preventDefault();
-    const keyId = $("#addModal").data("id"); // Get the id;
-    const keyText = $("#addModal").data("keyText"); // Get the id;
+  $("#addDataForm").on("submit", function (e) {
+    e.preventDefault();
+    const keyId = $("#addModal").data("id"); // Get the id
+    const keyText = $("#addModal").data("keyText"); // Get the key text
 
     // Collecting data from the form
     const formData = $(this).serialize();
@@ -74,16 +72,17 @@ $(document).ready(function () {
             response = JSON.parse(response);
           }
           if (response.status === "success") {
-            table.ajax.reload();
+            table.ajax.reload(); // Reload the table to reflect changes
+            table.search(keyId).draw(); // Optionally search for the updated row
 
-            // toast
+            // Show a toast notification for update
             toastOn(`KEY id: ${keyId} - ${keyText} updated successfully`);
-
             $("#addModal").modal("hide");
           }
         }
       );
     } else {
+      // Adding new data
       $.post("../server/addData.php", formData)
         .done(function (response) {
           try {
@@ -91,11 +90,20 @@ $(document).ready(function () {
               response = JSON.parse(response);
             }
 
-            table.ajax.reload();
+            // Add the new data to the DataTable
+            var newRow = response.data; // Use the new data returned from the server
+            var newRowNode = table.row.add(newRow).draw().node(); // Add new row and get the row node
 
-            // toast
+            // Add a class to the new row to change the background color
+            $(newRowNode).addClass("highlight"); // Highlight the new row
+
+            // Optionally reset the highlight after a timeout
+            setTimeout(() => {
+              $(newRowNode).removeClass("highlight"); // Remove highlight after 10 seconds
+            }, 10000); // Adjust time as necessary
+
+            // Show a toast notification for addition
             toastOn(`KEY added successfully`);
-
             $("#addDataForm")[0].reset();
             $("#addModal").modal("hide");
           } catch (error) {
@@ -110,11 +118,14 @@ $(document).ready(function () {
     }
   });
 
+  // Handling click on the delete button
   $("#deleteButton").on("click", function () {
+    $("#addDataForm")[0].reset();
+    $("#addModal").modal("hide");
     $("#confirmDeleteModal").modal("show"); // Show the confirmation modal for deletion
   });
 
-  // Handling click on the delete button
+  // Confirm deletion
   $("#confirmDeleteBtn").on("click", function () {
     const id = $("#addModal").data("id");
     $.post("../server/deleteData.php", { id: id })
@@ -123,10 +134,9 @@ $(document).ready(function () {
           response = JSON.parse(response);
         }
         if (response.status === "success") {
-          console.log(response);
-          // toast
+          // Show a toast notification for deletion
           toastOn(`KEY deleted successfully`);
-          table.ajax.reload(); // Reload the table
+          table.ajax.reload(); // Reload the table to reflect changes
           $("#addModal").modal("hide"); // Close the modal window
         } else {
           alert(response.message);
@@ -140,18 +150,19 @@ $(document).ready(function () {
   });
 
   // Handling click on create cache
-  $("#createCache").on("click", function () {
+  $("#createCache").on("click", function (e) {
+    e.preventDefault();
+
     $.post("../server/createCache.php")
       .done(function (response) {
         try {
-          // Если сервер вернул JSON, пытаемся его распарсить
           const jsonResponse =
             typeof response === "string" ? JSON.parse(response) : response;
 
           if (jsonResponse.status === "success") {
-            console.log("success added cache");
+            console.log(jsonResponse.message);
+            toastOn(jsonResponse.message); // Show success message
           } else {
-            // Если сервер вернул ошибку
             console.error("Server Error:", jsonResponse.message);
             alert(
               jsonResponse.message || "Error creating cache. Please try again."
@@ -163,12 +174,12 @@ $(document).ready(function () {
         }
       })
       .fail(function (xhr, status, error) {
-        console.error("Error adding data:", error);
+        console.error("Error creating cache:", error);
         alert("Error creating cache. Please try again.");
       });
   });
 
-  // toast on
+  // Function to display toast messages
   function toastOn(keyText) {
     $("#toast .toast-body").text(keyText);
     $("#toast").toast("show"); // Show the toast
